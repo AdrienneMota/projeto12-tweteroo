@@ -39,7 +39,7 @@ app.post("/sign-up", (req, res) => {
     const candidateuser = req.body
     
     if((!candidateuser.username) || (!candidateuser.avatar)){
-        res.status(400).send({messenger : "Insira todos os campos"})
+        res.status(400).send("Insira todos os campos")
         return
     }
     
