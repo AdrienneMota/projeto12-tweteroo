@@ -16,8 +16,14 @@ app.get("/tweets", (req, res) => {
     const newtweets = []
     const lasttweets = []
 
-    for(let i = tweets.length - 1; i> tweets.length-11; i--){
-        lasttweets.push(tweets[i])
+    if(tweets.length>=10){
+        for(let i = tweets.length - 1; i> tweets.length-11; i--){
+            lasttweets.push(tweets[i])
+        }
+    }else{
+        for(let i = tweets.length - 1; i>= 0; i--){
+            lasttweets.push(tweets[i])
+        }
     }
     
     for (const lasttweet of lasttweets) {

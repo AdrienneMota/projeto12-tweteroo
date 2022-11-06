@@ -1,59 +1,25 @@
 const tweets = [
     {   
-        //id_user: 1,
-        username: "bobesponja",
-        tweet: "meu bb"
-    },
-    {   
-        //id_user: 1,
-        username: "bobesponja",
-        tweet: "eu amo o hub"
+        username: "loid",
+        tweet: "quer casar comigo"
     },
     {
-       // id_user:2,
-        username: "yor",
-        tweet: "não sei cozinhar"
-    },
-    {   
-        //id_user: 1,
-        username: "bobesponja",
-        tweet: "eu amo o hub"
-    },
-    {   
-        //id_user: 1,
-        username: "bobesponja",
-        tweet: "eu amo o hub"
-    },
-    {   
-        //id_user: 1,
-        username: "bobesponja",
-        tweet: "eu amo o hub"
-    },
-    {   
-        //id_user: 1,
-        username: "bobesponja",
-        tweet: "eu amo o hub"
+         username: "yor",
+         tweet: "não sei cozinhar"
     },
     {
-       // id_user:2,
+        username: "loid",
+        tweet: "tudo bem, eu cozinho"
+    },
+    {
         username: "yor",
-        tweet: "não sei cozinhar"
+        tweet: "então eu aceito"
     },
-    {   
-        //id_user: 1,
-        username: "bobesponja",
-        tweet: "eu amo o hub"
+    {
+        username: "anya",
+        tweet: "eba, tenho uma mãe"
     },
-    {   
-        //id_user: 1,
-        username: "bobesponja",
-        tweet: "eu amo o hub"
-    },
-    {   
-        //id_user: 1,
-        username: "bobesponja",
-        tweet: "eu era o último"
-    }
+
 ]
 
 export default tweets
