@@ -3,9 +3,9 @@ import cors from "cors"
 import users from "./users.js";
 import tweets from "./tweets.js";
 
-const app = express()
+const app = express() //crição da api
 
-//configurations
+//configurações
 app.use(cors())//evita um erro de segurança
 app.use(express.json())//permite o recebimento de dados do body como json
 
@@ -35,6 +35,11 @@ app.get("/tweets", (req, res) => {
 //criacao de usuario
 app.post("/sign-up", (req, res) => {
     const user = req.body
+    if((!user.username) || (!user.avatar)){
+        res.status(400).send({messenger : "Insira todos os campos"})
+        return
+    }
+
     const newuser = {
         username: user.username,
         avatar: user.avatar
@@ -42,12 +47,18 @@ app.post("/sign-up", (req, res) => {
 
     users.push(newuser)
 
-    res.send("OK")
+    res.status(201).send("OK-USUÁRIO CADASTRADO")
 })
 
 //criacao de tweet
 app.post("/tweets", (req, res) => {
     const tweet = req.body
+
+    if((!tweet.username) || (!tweet.tweet)){
+        res.status(400).send("Insira todos os campos")
+        return
+    }
+
     const newtweet = {
         username: tweet.username,
         tweet: tweet.tweet
@@ -55,7 +66,7 @@ app.post("/tweets", (req, res) => {
 
     tweets.push(newtweet)
 
-    res.send("OK - TWEET CADASTRADO COM SUCESSO")
+    res.status(201).send("OK - TWEET CADASTRADO COM SUCESSO")
 })
 
 //selecionando a porta
