@@ -3,15 +3,12 @@ import cors from "cors"
 import users from "./users.js";
 import tweets from "./tweets.js";
 
-const app = express() //crição da api
+const app = express() 
 
-//configurações
-app.use(cors())//evita um erro de segurança
-app.use(express.json())//permite o recebimento de dados do body como json
 
-//criacao de rotas
+app.use(cors())
+app.use(express.json())
 
-//listagens dos tweets
 app.get("/tweets", (req, res) => {
     const newtweets = []
     const lasttweets = []
@@ -38,17 +35,24 @@ app.get("/tweets", (req, res) => {
     res.send(newtweets)
 })
 
-//criacao de usuario
 app.post("/sign-up", (req, res) => {
-    const user = req.body
-    if((!user.username) || (!user.avatar)){
+    const candidateuser = req.body
+    
+    if((!candidateuser.username) || (!candidateuser.avatar)){
         res.status(400).send({messenger : "Insira todos os campos"})
         return
     }
+    
+    for (const user of users) { 
+        if(user.username === candidateuser.username){
+            res.status(409).send("Usuário já existente, porfavor, digite outro nome.")
+            return
+        }
+    }
 
     const newuser = {
-        username: user.username,
-        avatar: user.avatar
+        username: candidateuser.username,
+        avatar: candidateuser.avatar
     }
 
     users.push(newuser)
@@ -56,7 +60,6 @@ app.post("/sign-up", (req, res) => {
     res.status(201).send("OK-USUÁRIO CADASTRADO")
 })
 
-//criacao de tweet
 app.post("/tweets", (req, res) => {
     const tweet = req.body
 
@@ -75,5 +78,4 @@ app.post("/tweets", (req, res) => {
     res.status(201).send("OK - TWEET CADASTRADO COM SUCESSO")
 })
 
-//selecionando a porta
-app.listen('5000', () => console.log('Server is running in port: 5000'))
+app.listen(5000, () => console.log(`Server is running in port: ${5000}`))
