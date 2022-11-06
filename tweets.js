@@ -52,7 +52,7 @@ const tweets = [
     {   
         //id_user: 1,
         username: "bobesponja",
-        tweet: "eu amo o hub"
+        tweet: "eu era o último"
     }
 ]
 
